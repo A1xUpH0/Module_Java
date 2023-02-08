@@ -7,18 +7,18 @@ vider votre ancien local.
 */
 
 public class Main {
-  public static void main(String[] args) {
+  public static void main(String[] args) { // Permet de connaitre le nombre de camions nécéssaire à un déménagement ainsi que le nombre de cartons dans le dernier camion
 
     int nbCartons = 50; // Nombre de cartons
     int contCamion = 9; // Contenance max d'un camions
 
     int nbCamions = 0; // Nombre de camions nécéssaire
 
-    while(nbCartons > contCamion) {
+    while(nbCartons > contCamion) { // Compte le nombre de camions plein
       nbCamions++;
       nbCartons -= contCamion;
     }
-    nbCamions++;
-    System.out.println("DEMENAGEMENT\nOn a eu besoin de " + nbCamions + " camions.\nEte dernier camion contenait " + nbCartons + " cartons.");
+    nbCamions++; // Ajoute le dernier camion
+    System.out.println("DEMENAGEMENT\nOn a eu besoin de " + nbCamions + " camions.\nEte dernier camion contenait " + nbCartons + " cartons."); // Affichage terminal
   }
 }
