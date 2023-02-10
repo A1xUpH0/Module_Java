@@ -7,17 +7,15 @@ public class ThirdChoice {
   
   /**
    * Method Third Choice
-   * @param sc
-   * @return [Bool]
+   * @param sc : The scanner of the terminal
+   * @return a boolean 
    */
   public boolean thirdChoice(Scanner sc) {
 
     System.out.println("\nWould you continue to play ?");
     System.out.println("1. Continue to play");
     System.out.println("2. Quit game");
-    /**
-     * Choice
-     */
+
     int continueChoice = sc.nextInt();
     
 

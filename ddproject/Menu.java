@@ -6,7 +6,7 @@ import ddproject.classes.menuelements.FirstChoice; // Import the First Choice cl
 public class Menu {
   
   /**
-   * Method menu
+   * Method which strat the scanner and call the first choice
    */
   public void menu() {
     Scanner sc = new Scanner(System.in); // Create a Scanner object 

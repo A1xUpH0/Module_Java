@@ -3,7 +3,7 @@ package ddproject;
 public class Main {
 
   /**
-   * Method Main
+   * Method which display the menu in the terminal
    * @param args
    */
   public static void main(String[] args) {

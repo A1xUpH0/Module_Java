@@ -8,17 +8,17 @@ public class Game {
   public void game(){ // Method Game
 
     /**
-     * Initial Position
+     * The initial position of the character
      */
     int POSINIT = 1;
 
     /**
-     * Position of END Case
+     * The position of the END of the game
      */
     int END = 64;
   
     /**
-     * Player Position
+     * The position of the character
      */
     int posPlayer;
 
@@ -27,7 +27,7 @@ public class Game {
      */
     boolean win = false;
 
-    posPlayer = POSINIT; // Init Pos of Player
+    posPlayer = POSINIT; // Init. Pos of Player
 
     while (!win){ // Game Loop
       int varPos = Round(posPlayer, END); // Varpos (Test Variable) + Call Method Round
@@ -43,25 +43,25 @@ public class Game {
 
   }
   /**
-   * Method Drop Dices (1 -> 6) 
-   * @return [Int]
+   * Method which drop the dices (1 -> 6) 
+   * @return an Integer
    */
   private static int DropDice(){
     return new Random().nextInt(6) + 1;
   }
 
   /**
-   * Method Round
-   * @param posPlayer
-   * @param END
+   * Method which simulate 1 round
+   * @param posPlayer : The position of the character
+   * @param END : The position of the END of the game
    * @return [Int]
    */
   private static int Round(int posPlayer, int END){
     if (posPlayer >= END){
-      return -1; // Return Impossible value to Test
+      return -1;
     }
     else {
-      return posPlayer += DropDice(); // Call Method Drop Dices
+      return posPlayer += DropDice();
     }
   }
 }

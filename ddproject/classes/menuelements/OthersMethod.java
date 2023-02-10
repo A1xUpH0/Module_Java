@@ -5,30 +5,44 @@ import ddproject.classes.menuelements.OthersMethod; // Import the Others Method 
 
   public class OthersMethod {
 
-    public void ShowInfos(String name, String classChoice){ // Method Show infos
+    /**
+     * Method which diplay the "name" and the "class" of the character
+     * @param name : The name of the character
+     * @param classChoice : The class of the character
+     */
+    public void ShowInfos(String name, String classChoice){
       System.out.println("Class : " + classChoice);
-      System.out.println("Name : " + name); // Print Name & Class
     }
 
-
-    public void ModifyInfos(String name, String classChoice, Scanner sc){ // Method Modify infos
+    /**
+     * Method which modify the "name" and the "class" of the character
+     * @param name : The name of the character
+     * @param classChoice : The class of the character
+     * @param sc : The scanner of the terminal
+     */
+    public void ModifyInfos(String name, String classChoice, Scanner sc){
       System.out.println("\nEnter the new name :");
-      name = sc.next(); // Choose Name
+      name = sc.next();
       System.out.println("\nNew informations :");
-      ShowInfos(name, classChoice); // Call Show Infos
     }
 
-
+    /**
+     * Method which diplay an error message
+     */
     public void NotValidChoice(){ // Method Not Valid Choice
       System.out.println("\nERROR : Choice not valid"); // Error Message
     }
 
-
-    public void IsValidClass(String classChoice, Scanner sc){ // Method Is Valid Class
-      if (!classChoice.equals("Warrior") && !classChoice.equals("Wizard")) { // Test Class Choice
-        NotValidChoice(); // Call Method Not Valid Choice
+    /**
+     * Method which verify if the user's choice of class is valid
+     * @param classChoice : The class of the character
+     * @param sc : The scanner of the terminal
+     */
+    public void IsValidClass(String classChoice, Scanner sc){
+      if (!classChoice.equals("Warrior") && !classChoice.equals("Wizard")) {
+        NotValidChoice();
         System.out.println("\nChoose character's class (Warrior or Wizard) :");
-        classChoice = sc.next(); // 2nd Try to choose
+        classChoice = sc.next();
       }
     }
   }
