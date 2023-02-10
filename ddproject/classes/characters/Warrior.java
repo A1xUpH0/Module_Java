@@ -1,18 +1,43 @@
 package ddproject.classes.characters;
 
-import ddproject.classes.Character;
+import ddproject.classes.Character; // Import Character Class
 
 
 public class Warrior extends Character {
 
-  String name; // Name
-  int health; // Health Points
-  int strength; // Strength Points
-  String offensiveEquipment; // Offensive Equipment
-  String defensiveEquipment; // Defensive Equipment
+  /**
+   * Name
+   */
+  private String name;
+
+  /**
+   * Health Points
+   */
+  private int health;
+
+  /**
+   * Strength Points
+   */
+  private int strength;
+
+  /**
+   * Offensive Equipment
+   */
+  private String offensiveEquipment;
+
+  /**
+   * Defensive Equipment
+   */
+  private String defensiveEquipment;
 
 
-  public Warrior(String name, String offensiveEquipment, String defensiveEquipment) { // Values Attribution
+  /**
+   * Constructor Warrior
+   * @param name
+   * @param offensiveEquipment
+   * @param defensiveEquipment
+   */
+  public Warrior(String name, String offensiveEquipment, String defensiveEquipment) {
     this.name = name;
     this.health = 10;
     this.strength = 10;
@@ -22,6 +47,7 @@ public class Warrior extends Character {
 
 
   // Getters et Setters
+  
   public String getName() {
     return name;
   }
@@ -37,7 +63,7 @@ public class Warrior extends Character {
   }
 
   public String getDefensiveEquipment() {
-    return offensiveEquipment;
+    return defensiveEquipment;
   }
   public void setDefensiveEquipment(String defensiveEquipment) {
       this.defensiveEquipment = defensiveEquipment;

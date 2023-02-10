@@ -2,11 +2,28 @@ package ddproject.classes.equipments;
 
 public class DefensiveEquipment {
   
-  String equipment; // Equipment (Shield or Potion)
-  int level; // Defense Level 
-  String name; // Name
+  /**
+   * Equipment (Weapon or Spell) [String]
+   */
+  private String equipment; 
 
-  public DefensiveEquipment(String equipment, int level, String name) { // Values Attribution
+  /**
+   * Attack Level [Int]
+   */
+  private int level;
+
+  /**
+   * Name [String]
+   */
+  private String name; 
+
+  /**
+   * Constructor Defensive Equipment
+   * @param equipment
+   * @param level
+   * @param name
+   */
+  public DefensiveEquipment(String equipment, int level, String name) {
     this.equipment = equipment;
     this.level = level;
     this.name = name;
@@ -14,6 +31,7 @@ public class DefensiveEquipment {
 
 
   // Getters et Setters
+  
   public String getEquipment() {
     return equipment;
   }

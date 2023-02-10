@@ -1,18 +1,43 @@
 package ddproject.classes.characters;
 
-import ddproject.classes.Character;
+import ddproject.classes.Character; // Import Charcter Class
 
 
 public class Wizard extends Character {
 
-  String name; // Name
-  int health; // Health Points
-  int strength; // Strength Points
-  String offensiveEquipment; // Offensive Equipment
-  String defensiveEquipment; // Defensive Equipment
+  /**
+   * Name
+   */
+  private String name;
+
+  /**
+   * Health Points
+   */
+  private int health;
+
+  /**
+   * Strength Points
+   */
+  private int strength;
+
+  /**
+   * Offensive Equipment
+   */
+  private String offensiveEquipment;
+
+  /**
+   * Defensive Equipment
+   */
+  private String defensiveEquipment;
 
 
-  public Wizard(String name, String offensiveEquipment, String defensiveEquipment) { // Values Attribution
+  /**
+   * Constructor Wizard
+   * @param name
+   * @param offensiveEquipment
+   * @param defensiveEquipment
+   */
+  public Wizard(String name, String offensiveEquipment, String defensiveEquipment) {
     this.name = name;
     this.health = 6;
     this.strength = 15;
@@ -21,6 +46,7 @@ public class Wizard extends Character {
   }
 
   // Getters et Setters
+  
   public String getName() {
     return name;
   }

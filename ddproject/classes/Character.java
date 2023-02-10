@@ -3,29 +3,47 @@ package ddproject.classes;
 
 public class Character {
 
-    private String name; // Name
-    private String classChoice; // Class Choice
+  /**
+   * Name
+   */
+    private String name;
+
+    /**
+     * Class Choice
+     */
+    private String classChoice;
 
    
-    public Character() { // Constructor Setting Less
+    /**
+     * Constructor Character
+     */
+    public Character() {
         this.name = "Unknown";
         this.classChoice = "Unknown";
     }
 
-   
-    public Character(String name) { // Constructor with Name
+    /**
+     * Constructor Character
+     * @param name
+     */
+    public Character(String name) {
         this.name = name;
         this.classChoice = "Unknown";
     }
 
-    
-    public Character(String name, String classChoice) { // Constructor with Name and classChoice
+    /**
+     * Constructor Character
+     * @param name
+     * @param classChoice
+     */
+    public Character(String name, String classChoice) {
         this.name = name;
         this.classChoice = classChoice;
     }
 
 
     // Getters et Setters
+    
     public String getName() {
         return name;
     }
