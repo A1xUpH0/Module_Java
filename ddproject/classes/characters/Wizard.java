@@ -12,7 +12,7 @@ public class Wizard extends Player {
    * @param health
    * @param strength
    */
-  public Wizard(String name, int health, int strength, Spell offensive, Potion defensive) {
-    super(name, health, strength, offensive, defensive);
+  public Wizard(String name, Spell offensive, Potion defensive) {
+    super(name, 6, 15, 1, offensive, defensive);
   }
 }

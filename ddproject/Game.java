@@ -1,11 +1,16 @@
 package ddproject;
 
+import java.util.Random;
+
 import ddproject.classes.Player;
 
 public class Game {
 
   private Player player;
-
+  /**
+   * The last case of the board
+   */
+  private static int endBoard = 64;
 
   /**
    * Constructor of the Game class
@@ -19,7 +24,32 @@ public class Game {
    * Method which run the game
    */
   public void run() {
-    System.out.println("TODO : run game");
+
+    boolean isEnd = false;
+
+    while (!isEnd) {
+      isEnd = round();
+    }
+  }
+
+
+  public boolean round() {
+    if (player.position < endBoard){
+      System.out.println("case " + player.position + "/" + endBoard);
+      player.position += virtualDice();
+      return false;
+    }
+    else {
+      System.out.println("case " + player.position + "/" + endBoard);
+      System.out.println("THE END");
+      return true;
+    }
+    
+  }
+
+
+  public int virtualDice() {
+    return new Random().nextInt(5 + 1)  + 1;
   }
 
 

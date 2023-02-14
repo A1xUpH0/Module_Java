@@ -38,12 +38,13 @@ public class Menu {
 
 
   public void run(){
+    System.out.println("\nBonjour !\n");
     while (!this.exit) {
-        System.out.println("Bonjour ! ");
         if(this.game.hasPlayer()){
-            System.out.println(" 1 - Update player");
-            System.out.println(" 2 - Delete player");
-            System.out.println(" 3 - Run game");
+          System.out.println("\nCHOOSE");
+          System.out.println(" 1 - Update player");
+          System.out.println(" 2 - Delete player");
+          System.out.println(" 3 - Run game");
         } else {
             System.out.println(" 1 - Create player");
         }
@@ -92,7 +93,7 @@ public class Menu {
      * @param player player to update
      */
     private void updatePlayer(Player player) {
-      System.out.println("TODO");
+      createPlayer();
   }
 
   /**
@@ -100,26 +101,25 @@ public class Menu {
    * @return newly created player
    */
   private Player createPlayer() {
-    System.out.println("Bonjour ! ");
-    System.out.println("Type name :");
+    System.out.println("\nType name :");
     String name  = this.scanner.nextLine();
     boolean correct;
     Player player = null;
     do {
-      System.out.println("Choose class");
+      System.out.println("\nChoose class");
       System.out.println(" 1 - Warrior");
-      System.out.println(" 2 - Wizzard");
+      System.out.println(" 2 - Wizard");
       int choice  = scanner.nextInt();
       scanner.nextLine();
       switch (choice){
         case 1 : 
           correct = true;
-          player = new Warrior(name, 10, 10,new Weapon(5, "weapon"), new Shield(5, "shield"));
+          player = new Warrior(name, new Weapon(5, "weapon"), new Shield(5, "shield"));
           break;
 
         case 2 :
           correct = true;
-          player = new Wizard(name, 6, 15,new Spell(5, "spell"), new Potion(5, "potion"));
+          player = new Wizard(name, new Spell(5, "spell"), new Potion(5, "potion"));
           break;
           
         default : correct = false;

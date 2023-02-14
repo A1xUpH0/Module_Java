@@ -20,6 +20,10 @@ public abstract class Player {
    */
   private int strength;
   /**
+   * The positionof the Character
+   */
+  public int position;
+  /**
    * The offensive equipment of the Character (Weapon or Spell)
    */
   private OffensiveEquipment offensive;
@@ -36,6 +40,7 @@ public abstract class Player {
     this.name = "Unknown";
     this.health = 0;
     this.strength = 0;
+    this.position = 1;
     this.offensive = new Weapon(5, "Unknown");
     this.defensive = new Shield(5, "Unknown");
   }
@@ -46,10 +51,11 @@ public abstract class Player {
    * @param health : The health of the character
    * @param strength : The strength of the character
    */
-  public Player(String name, int health, int strength, OffensiveEquipment offensive, DefensiveEquipment defensive) {
+  public Player(String name, int health, int strength, int position, OffensiveEquipment offensive, DefensiveEquipment defensive) {
     this.name = name;
     this.health = health;
     this.strength = strength;
+    this.position = position;
     this.offensive = offensive;
     this.defensive = defensive;
   }

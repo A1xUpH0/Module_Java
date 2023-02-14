@@ -12,7 +12,7 @@ public class Warrior extends Player {
    * @param health
    * @param strength
    */
-  public Warrior(String name, int health, int strength, Weapon offensive, Shield defensive) {
-    super(name, health, strength, offensive, defensive);
+  public Warrior(String name, Weapon offensive, Shield defensive) {
+    super(name, 10, 10, 1, offensive, defensive);
   }
 }
