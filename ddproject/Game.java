@@ -1,67 +1,99 @@
 package ddproject;
 
-import java.util.Random; // Import Random Class
+import java.util.Random;
+
+import ddproject.classes.Player;
+import ddproject.exceptions.OutOfBoardException;
 
 public class Game {
 
+  private Player player;
+  /**
+   * The last case of the board
+   */
+  private static int endBoard = 64;
 
-  public void game(){ // Method Game
+  /**
+   * Constructor of the Game class
+   */
+  public Game() {
+    this.player = null;
+  }
 
-    /**
-     * The initial position of the character
-     */
-    int POSINIT = 1;
 
-    /**
-     * The position of the END of the game
-     */
-    int END = 64;
-  
-    /**
-     * The position of the character
-     */
-    int posPlayer;
+  /**
+   * Method which run the game
+   */
+  public void run() throws OutOfBoardException {
 
-    /**
-     * WIN ? variable
-     */
-    boolean win = false;
+    boolean isEnd = false;
 
-    posPlayer = POSINIT; // Init. Pos of Player
+    player.position = 1;
 
-    while (!win){ // Game Loop
-      int varPos = Round(posPlayer, END); // Varpos (Test Variable) + Call Method Round
-
-      if (varPos == -1){ // Test (if win)
-        win = true;
-      } else { // Test (else)
-        posPlayer = varPos;
-        System.out.println("Case " + posPlayer + "/64"); // Print new position
+    while (!isEnd) {
+      if (player.position > endBoard) {
+        throw new OutOfBoardException();
+      }
+      else {
+        isEnd = round();
       }
       
+      
     }
-
-  }
-  /**
-   * Method which drop the dices (1 -> 6) 
-   * @return an Integer
-   */
-  private static int DropDice(){
-    return new Random().nextInt(6) + 1;
   }
 
-  /**
-   * Method which simulate 1 round
-   * @param posPlayer : The position of the character
-   * @param END : The position of the END of the game
-   * @return [Int]
-   */
-  private static int Round(int posPlayer, int END){
-    if (posPlayer >= END){
-      return -1;
+
+  public boolean round() {
+    if (player.position < endBoard){
+      System.out.println("case " + player.position + "/" + endBoard);
+      player.position += virtualDice();
+      return false;
     }
     else {
-      return posPlayer += DropDice();
+      System.out.println("case " + player.position + "/" + endBoard);
+      System.out.println("THE END");
+      return true;
     }
+    
+  }
+
+
+  public int virtualDice() {
+    return new Random().nextInt(5 + 1)  + 1;
+  }
+
+
+  /**
+   * Method which verify if the game has a player
+   * @return a boolean
+   */
+  public boolean hasPlayer() {
+      return this.player != null;
+  }
+
+
+  /**
+   * Method which delete the current player
+   */
+  public void unsetPlayer() {
+      this.player = null;
+  }
+
+
+  // Getters et Setters
+
+   /**
+   * Getter of "player" variable
+   * @return player : The player of the character
+   */
+  public Player getPlayer() {
+    return player;
+  }
+  /**
+  * Setter of "player" variable
+  * @param player : The player of the character
+  */
+  public void setPlayer(Player player) {
+    this.player = player;
   }
 }

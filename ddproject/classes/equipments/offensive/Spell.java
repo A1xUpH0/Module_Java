@@ -6,12 +6,11 @@ public class Spell extends OffensiveEquipment{
 
   /**
    * The constructor of the Spell class
-   * @param type : The type of the Spell
    * @param level : The level of the Spell
    * @param name : The name of the Spell
    */
-  public Spell(String type, int level, String name) {
-    super(type, level, name);
+  public Spell(int level, String name) {
+    super(level, name);
   }
   
 }
