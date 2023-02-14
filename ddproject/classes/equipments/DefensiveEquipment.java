@@ -23,6 +23,12 @@ public  class DefensiveEquipment {
   }
 
 
+  @Override
+  public String toString(){
+    return "| Defensive equipment : " + name + ", Level : " + level +" |";
+  }
+
+
   // Getters et Setters
 
    /**

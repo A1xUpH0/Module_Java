@@ -23,6 +23,12 @@ public abstract class OffensiveEquipment {
   }
 
 
+  @Override
+  public String toString(){
+    return "| Offensive equipment : " + name + ", Level : " + level + " |";
+  }
+
+
   // Getters et Setters
 
    /**

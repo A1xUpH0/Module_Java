@@ -8,6 +8,7 @@ import ddproject.classes.equipments.defensive.Potion;
 import ddproject.classes.equipments.defensive.Shield;
 import ddproject.classes.equipments.offensive.Spell;
 import ddproject.classes.equipments.offensive.Weapon;
+import ddproject.exceptions.OutOfBoardException;
 
 public class Menu {
   
@@ -37,7 +38,7 @@ public class Menu {
   }
 
 
-  public void run(){
+  public void run() throws OutOfBoardException{
     System.out.println("\nBonjour !\n");
     while (!this.exit) {
         if(this.game.hasPlayer()){
@@ -77,7 +78,12 @@ public class Menu {
             // FIXME we should check if the game is ready to start (delegate that responsibility to the game object)
             if(this.game.hasPlayer()){
               // The we run the game
-              this.game.run();
+              try {
+                this.game.run();
+              } catch (OutOfBoardException e) {
+                // TODO catch exception
+              }
+              
             }
             break;
 

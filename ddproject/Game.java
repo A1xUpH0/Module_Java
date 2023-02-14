@@ -3,6 +3,7 @@ package ddproject;
 import java.util.Random;
 
 import ddproject.classes.Player;
+import ddproject.exceptions.OutOfBoardException;
 
 public class Game {
 
@@ -23,12 +24,21 @@ public class Game {
   /**
    * Method which run the game
    */
-  public void run() {
+  public void run() throws OutOfBoardException {
 
     boolean isEnd = false;
 
+    player.position = 1;
+
     while (!isEnd) {
-      isEnd = round();
+      if (player.position > endBoard) {
+        throw new OutOfBoardException();
+      }
+      else {
+        isEnd = round();
+      }
+      
+      
     }
   }
 
