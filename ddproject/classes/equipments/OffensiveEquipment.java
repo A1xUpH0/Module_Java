@@ -3,11 +3,6 @@ package ddproject.classes.equipments;
 public abstract class OffensiveEquipment {
   
   /**
-   * The type of the equipment (Weapon or Spell)
-   */
-  private String type; 
-
-  /**
    * The level of the equipment
    */
   private int level;
@@ -19,34 +14,16 @@ public abstract class OffensiveEquipment {
 
   /**
    * The constructor of the OffensiveEquipment class
-   * @param type : The type of the equipment
    * @param level : The level of the equipment
    * @param name : The name of the equipment
    */
-  public OffensiveEquipment(String type, int level, String name) {
-    this.type = type;
+  public OffensiveEquipment(int level, String name) {
     this.level = level;
     this.name = name;
   }
 
 
   // Getters et Setters
-
-  /**
-   * Getter of the type of the equipment
-   * @return type
-   */
-  public String getType() { 
-    return type;
-  }
-
-  /**
-   * Setter of the type of the equipment
-   * @param type : The type of the equipment
-   */
-  public void setType(String type) {
-      this.type = type;
-   }
 
    /**
    * Getter of the level of the equipment
