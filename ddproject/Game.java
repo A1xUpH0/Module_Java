@@ -5,8 +5,7 @@ import java.util.Random;
 import ddproject.classes.Case;
 import ddproject.classes.Enemy;
 import ddproject.classes.Player;
-import ddproject.classes.equipments.defensive.Potion;
-import ddproject.classes.equipments.defensive.Shield;
+import ddproject.classes.equipments.Potion;
 import ddproject.classes.equipments.offensive.Spell;
 import ddproject.classes.equipments.offensive.Weapon;
 import ddproject.exceptions.OutOfBoardException;
@@ -68,19 +67,16 @@ public class Game {
           new Case();
           break;
         case "Enemy":
-          new Case(new Enemy());
-          break;
-        case "Shield":
-          new Case(new Shield(5, "shield"));
+          new Case(new Enemy(10, 6));
           break;
         case "Weapon":
-          new Case(new Weapon(5, "weapon"));
+          new Case(new Weapon(5));
           break;
         case "Spell":
-          new Case(new Spell(5, "spell"));
+          new Case(new Spell(5));
           break;
         case "Potion":
-          new Case(new Potion(5, "potion"));
+          new Case(new Potion());
           break;
       }
       player.position += 1;//virtualDice();
@@ -94,19 +90,16 @@ public class Game {
           new Case();
           break;
         case "Enemy":
-          new Case(new Enemy());
-          break;
-        case "Shield":
-          new Case(new Shield(5, "shield"));
+          new Case(new Enemy(10, 6));
           break;
         case "Weapon":
-          new Case(new Weapon(5, "weapon"));
+          new Case(new Weapon(5));
           break;
         case "Spell":
-          new Case(new Spell(5, "spell"));
+          new Case(new Spell(5));
           break;
         case "Potion":
-          new Case(new Potion(5, "potion"));
+          new Case(new Potion());
           break;
     }
       System.out.println("THE END");

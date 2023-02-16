@@ -1,8 +1,6 @@
 package ddproject.classes;
 
-import ddproject.classes.equipments.DefensiveEquipment;
 import ddproject.classes.equipments.OffensiveEquipment;
-import ddproject.classes.equipments.defensive.Shield;
 import ddproject.classes.equipments.offensive.Weapon;
 
 public abstract class Player {
@@ -27,10 +25,6 @@ public abstract class Player {
    * The offensive equipment of the Character (Weapon or Spell)
    */
   private OffensiveEquipment offensive;
-  /**
-   * The strength of the Character (Shield or Potion)
-   */
-  private DefensiveEquipment defensive;
 
 
   /**
@@ -41,8 +35,7 @@ public abstract class Player {
     this.health = 0;
     this.strength = 0;
     this.position = 1;
-    this.offensive = new Weapon(5, "Unknown");
-    this.defensive = new Shield(5, "Unknown");
+    this.offensive = new Weapon(5);
   }
   /**
    * Constructor of the Character class
@@ -51,13 +44,12 @@ public abstract class Player {
    * @param health : The health of the character
    * @param strength : The strength of the character
    */
-  public Player(String name, int health, int strength, int position, OffensiveEquipment offensive, DefensiveEquipment defensive) {
+  public Player(String name, int health, int strength, int position, OffensiveEquipment offensive) {
     this.name = name;
     this.health = health;
     this.strength = strength;
     this.position = position;
     this.offensive = offensive;
-    this.defensive = defensive;
   }
 
 

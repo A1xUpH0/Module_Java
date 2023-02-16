@@ -6,26 +6,21 @@ public abstract class OffensiveEquipment {
    * The level of the equipment
    */
   private int level;
-
-  /**
-   * The name of the equipment
-   */
-  private String name; 
+ 
 
   /**
    * The constructor of the OffensiveEquipment class
    * @param level : The level of the equipment
    * @param name : The name of the equipment
    */
-  public OffensiveEquipment(int level, String name) {
+  public OffensiveEquipment(int level) {
     this.level = level;
-    this.name = name;
   }
 
 
   @Override
   public String toString(){
-    return "| Offensive equipment : " + name + ", Level : " + level + " |";
+    return "| Offensive equipment level : " + level + " |";
   }
 
 
@@ -45,21 +40,5 @@ public abstract class OffensiveEquipment {
    */
   public void setLevel(int level) {
       this.level = level;
-   }
-
-   /**
-   * Getter of the name of the equipment
-   * @return name
-   */
-   public String getName() {
-    return name;
-  }
-
-  /**
-   * Getter of the name of the equipment
-   * @param name : The name of the equipment
-   */
-  public void setName(String name) {
-      this.name = name;
    }
 }

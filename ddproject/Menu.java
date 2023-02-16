@@ -4,8 +4,6 @@ import java.util.Scanner;
 import ddproject.classes.Player;
 import ddproject.classes.characters.Warrior;
 import ddproject.classes.characters.Wizard;
-import ddproject.classes.equipments.defensive.Potion;
-import ddproject.classes.equipments.defensive.Shield;
 import ddproject.classes.equipments.offensive.Spell;
 import ddproject.classes.equipments.offensive.Weapon;
 import ddproject.exceptions.OutOfBoardException;
@@ -122,12 +120,12 @@ public class Menu {
       switch (choice){
         case 1 : 
           correct = true;
-          player = new Warrior(name, new Weapon(5, "weapon"), new Shield(5, "shield"));
+          player = new Warrior(name, new Weapon(5));
           break;
 
         case 2 :
           correct = true;
-          player = new Wizard(name, new Spell(5, "spell"), new Potion(5, "potion"));
+          player = new Wizard(name, new Spell(5));
           break;
           
         default : correct = false;

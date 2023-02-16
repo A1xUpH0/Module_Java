@@ -1,7 +1,6 @@
 package ddproject.classes.characters;
 
 import ddproject.classes.Player;
-import ddproject.classes.equipments.defensive.Potion;
 import ddproject.classes.equipments.offensive.Spell;
 
 public class Wizard extends Player {
@@ -12,7 +11,7 @@ public class Wizard extends Player {
    * @param health
    * @param strength
    */
-  public Wizard(String name, Spell offensive, Potion defensive) {
-    super(name, 6, 15, 1, offensive, defensive);
+  public Wizard(String name, Spell offensive) {
+    super(name, 6, 15, 1, offensive);
   }
 }

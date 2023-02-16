@@ -1,11 +1,10 @@
 package ddproject.classes;
 
-import ddproject.classes.equipments.DefensiveEquipment;
 import ddproject.classes.equipments.OffensiveEquipment;
+import ddproject.classes.equipments.Potion;
 
 public class Case {
   
-  private DefensiveEquipment contentDefensive;
   private OffensiveEquipment contentOffensive;
   private Enemy contentEnemy;
 
@@ -20,10 +19,10 @@ public class Case {
   }
   /**
    * Constructor of the class Case (contentDefensive)
-   * @param contentDefensive
+   * @param potion
    */
-  public Case(DefensiveEquipment contentDefensive) {
-    message = "Defensive equipement on this case";
+  public Case(Potion potion) {
+    message = "Potion on this case";
     toString();
   }
   /**
@@ -51,22 +50,6 @@ public class Case {
 
    
     // Getters et Setters
-
-  /**
-   * Getter of "contentDefensive" variable
-   * @return contentDefensive : The defensive content of the character
-   */
-  public DefensiveEquipment getContentDefensive() {
-    return contentDefensive;
-  }
-  /**
-   * Setter of "contentDefensive" variable
-   * @param contentDefensive : The defensive content of the character
-   */
-  public void setContentDefensive(DefensiveEquipment contentDefensive) {
-    this.contentDefensive = contentDefensive;
-  }
-
 
   /**
    * Getter of "contentOffensive" variable
