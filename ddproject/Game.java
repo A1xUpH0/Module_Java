@@ -22,9 +22,6 @@ public class Game {
     "Potion"
    };
    
-  //  new Case(new Enemy()),
-  //   new Case(new Weapon(5, "weapon")),
-  //   new Case(new Potion(5, "potion"))
   /**
    * The last case of the board
    */
@@ -58,7 +55,10 @@ public class Game {
     }
   }
 
-
+/**
+ * Method which simulate one round of the game
+ * @return a boolean
+ */
   public boolean round() {
     if (player.position < endBoard){
       System.out.println("case " + player.position + "/" + endBoard);
@@ -82,9 +82,7 @@ public class Game {
         case "Potion":
           new Case(new Potion(5, "potion"));
           break;
-    }
-
-
+      }
       player.position += 1;//virtualDice();
       return false;
     }
@@ -114,11 +112,13 @@ public class Game {
       System.out.println("THE END");
       return true;
     }
-    
-    
   }
 
 
+  /**
+   * Method which retur a random integer (1 - 6)
+   * @return an integer
+   */
   public int virtualDice() {
     return new Random().nextInt(5 + 1)  + 1;
   }

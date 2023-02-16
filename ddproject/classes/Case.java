@@ -43,11 +43,13 @@ public class Case {
     toString();
   }
 
+
    public String toString() {
     System.out.println(this.message);
     return "";
    }
 
+   
     // Getters et Setters
 
   /**

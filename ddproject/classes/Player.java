@@ -60,6 +60,10 @@ public abstract class Player {
     this.defensive = defensive;
   }
 
+
+  /**
+   * override of the method toString
+   */
   @Override
   public String toString(){
     return "| Player : " + name + ", Health : " + health + ", Strenght : " + strength + " |";

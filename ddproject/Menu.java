@@ -38,6 +38,10 @@ public class Menu {
   }
 
 
+  /**
+   * Method which run the menu
+   * @throws OutOfBoardException
+   */
   public void run() throws OutOfBoardException{
     System.out.println("\nBonjour !\n");
     while (!this.exit) {
@@ -83,10 +87,8 @@ public class Menu {
               } catch (OutOfBoardException e) {
                 // TODO catch exception
               }
-              
             }
             break;
-
           // The user which to exit (we break the main loop)
           case 0 : this.exit = true;
       }
@@ -95,11 +97,11 @@ public class Menu {
 
 
   /**
-     * Method which display a menu to permit update of an existing player
-     * @param player player to update
-     */
-    private void updatePlayer(Player player) {
-      createPlayer();
+   * Method which display a menu to permit update of an existing player
+   * @param player player to update
+   */
+  private void updatePlayer(Player player) {
+    createPlayer();
   }
 
   /**
@@ -131,7 +133,6 @@ public class Menu {
         default : correct = false;
       }
     } while (!correct);
-
     return player;
   }
 }
