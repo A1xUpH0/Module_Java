@@ -13,6 +13,7 @@ public class Game {
    */
   private static int endBoard = 64;
 
+  
   /**
    * Constructor of the Game class
    */
@@ -37,12 +38,14 @@ public class Game {
       else {
         isEnd = round();
       }
-      
-      
     }
   }
 
 
+  /**
+   * Method which simulate one round of the game
+   * @return a boolean
+   */
   public boolean round() {
     if (player.position < endBoard){
       System.out.println("case " + player.position + "/" + endBoard);
@@ -57,7 +60,10 @@ public class Game {
     
   }
 
-
+  /**
+   * Method which return a random int (1 - 6)
+   * @return an integer
+   */
   public int virtualDice() {
     return new Random().nextInt(5 + 1)  + 1;
   }
