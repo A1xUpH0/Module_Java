@@ -2,18 +2,35 @@ package ddproject;
 
 import java.util.Random;
 
+import ddproject.classes.Case;
+import ddproject.classes.Enemy;
 import ddproject.classes.Player;
+import ddproject.classes.equipments.defensive.Potion;
+import ddproject.classes.equipments.defensive.Shield;
+import ddproject.classes.equipments.offensive.Spell;
+import ddproject.classes.equipments.offensive.Weapon;
 import ddproject.exceptions.OutOfBoardException;
 
 public class Game {
 
   private Player player;
+  private static String[] Board = {
+    "Empty",
+    "Empty",
+    "Enemy",
+    "Weapon",
+    "Potion"
+   };
+   
+  //  new Case(new Enemy()),
+  //   new Case(new Weapon(5, "weapon")),
+  //   new Case(new Potion(5, "potion"))
   /**
    * The last case of the board
    */
-  private static int endBoard = 64;
+  private static int endBoard = Board.length - 1;
 
-  
+
   /**
    * Constructor of the Game class
    */
@@ -42,28 +59,66 @@ public class Game {
   }
 
 
-  /**
-   * Method which simulate one round of the game
-   * @return a boolean
-   */
   public boolean round() {
     if (player.position < endBoard){
       System.out.println("case " + player.position + "/" + endBoard);
-      player.position += virtualDice();
+      String currentCase = Board[player.position];
+      switch (currentCase) {
+        case "Empty":
+          new Case();
+          break;
+        case "Enemy":
+          new Case(new Enemy());
+          break;
+        case "Shield":
+          new Case(new Shield(5, "shield"));
+          break;
+        case "Weapon":
+          new Case(new Weapon(5, "weapon"));
+          break;
+        case "Spell":
+          new Case(new Spell(5, "spell"));
+          break;
+        case "Potion":
+          new Case(new Potion(5, "potion"));
+          break;
+    }
+
+
+      player.position += 1;//virtualDice();
       return false;
     }
     else {
       System.out.println("case " + player.position + "/" + endBoard);
+      String currentCase = Board[player.position];
+      switch (currentCase) {
+        case "Empty":
+          new Case();
+          break;
+        case "Enemy":
+          new Case(new Enemy());
+          break;
+        case "Shield":
+          new Case(new Shield(5, "shield"));
+          break;
+        case "Weapon":
+          new Case(new Weapon(5, "weapon"));
+          break;
+        case "Spell":
+          new Case(new Spell(5, "spell"));
+          break;
+        case "Potion":
+          new Case(new Potion(5, "potion"));
+          break;
+    }
       System.out.println("THE END");
       return true;
     }
     
+    
   }
 
-  /**
-   * Method which return a random int (1 - 6)
-   * @return an integer
-   */
+
   public int virtualDice() {
     return new Random().nextInt(5 + 1)  + 1;
   }
