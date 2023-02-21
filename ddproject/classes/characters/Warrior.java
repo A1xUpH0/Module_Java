@@ -12,6 +12,6 @@ public class Warrior extends Player {
    * @param strength
    */
   public Warrior(String name, Weapon offensive) {
-    super(name, 10, 10, 1, offensive);
+    super(name, 10, 10, 0, offensive);
   }
 }

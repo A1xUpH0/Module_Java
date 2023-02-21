@@ -1,52 +1,22 @@
 package ddproject.classes;
 
 import ddproject.classes.equipments.OffensiveEquipment;
-import ddproject.classes.equipments.Potion;
 
 public class Case {
   
   private OffensiveEquipment contentOffensive;
   private Enemy contentEnemy;
 
-  private String message = "Empty case";
-
 
   /**
    * Constructor of the class Case (empty)
    */
-  public Case() {
-    toString();
+  public Case(Player player) {
+    
   }
-  /**
-   * Constructor of the class Case (contentDefensive)
-   * @param potion
-   */
-  public Case(Potion potion) {
-    message = "Potion on this case";
-    toString();
-  }
-  /**
-   * Constructor of the class Case (contentOffensive)
-   * @param contentOffensive
-   */
-  public Case(OffensiveEquipment contentOffensive) {
-    message = "Offensive equipement on this case";
-    toString();
-  }
-  /**
-   * Constructor of the class Case (contentEnemy)
-   * @param contentEnemy
-   */
-  public Case(Enemy contentEnemy) {
-    message = "Enemy on this case";
-    toString();
-  }
+ 
 
-
-   public String toString() {
-    System.out.println(this.message);
-    return "";
-   }
+  public void run(Player player){}
 
    
     // Getters et Setters

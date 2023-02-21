@@ -12,6 +12,6 @@ public class Wizard extends Player {
    * @param strength
    */
   public Wizard(String name, Spell offensive) {
-    super(name, 6, 15, 1, offensive);
+    super(name, 6, 15, 0, offensive);
   }
 }

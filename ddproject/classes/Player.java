@@ -12,7 +12,7 @@ public abstract class Player {
   /**
    * The type of the character (Warrior or Wizard)
    */
-  private int health;
+  public int health;
   /**
    * The strength of the Character
    */
@@ -20,11 +20,11 @@ public abstract class Player {
   /**
    * The positionof the Character
    */
-  public int position;
+  private int position;
   /**
    * The offensive equipment of the Character (Weapon or Spell)
    */
-  private OffensiveEquipment offensive;
+  public OffensiveEquipment offensive;
 
 
   /**
@@ -34,7 +34,7 @@ public abstract class Player {
     this.name = "Unknown";
     this.health = 0;
     this.strength = 0;
-    this.position = 1;
+    this.position = 0;
     this.offensive = new Weapon(5);
   }
   /**
@@ -109,5 +109,37 @@ public abstract class Player {
    */
   public void setStrength(int strength) {
       this.strength = strength;
+  }
+
+
+  /**
+   * Getter of "offensive" variable
+   * @return"offensive : The offensive of the character
+   */
+  public OffensiveEquipment getOffensive() {
+    return offensive;
+  }
+  /**
+   * Setter of "strength" variable
+   * @param strength : The strength of the character
+   */
+  public void setOffensive(OffensiveEquipment offensive) {
+      this.offensive = offensive;
+  }
+
+
+    /**
+   * Getter of "position" variable
+   * @return"position : The position of the character
+   */
+  public int getPosition() {
+    return position;
+  }
+  /**
+   * Setter of "position" variable
+   * @param position : The position of the character
+   */
+  public void setPosition(int position) {
+      this.position = position;
   }
 }

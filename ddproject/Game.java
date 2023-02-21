@@ -2,30 +2,18 @@ package ddproject;
 
 import java.util.Random;
 
+import ddproject.classes.Board;
 import ddproject.classes.Case;
-import ddproject.classes.Enemy;
 import ddproject.classes.Player;
-import ddproject.classes.equipments.Potion;
-import ddproject.classes.equipments.offensive.Spell;
-import ddproject.classes.equipments.offensive.Weapon;
+import ddproject.classes.cases.EmptyCase;
+import ddproject.classes.characters.Warrior;
+import ddproject.classes.equipments.offensive.spells.Fireball;
+import ddproject.classes.equipments.offensive.weapons.Sword;
 import ddproject.exceptions.OutOfBoardException;
 
 public class Game {
 
   private Player player;
-  private static String[] Board = {
-    "Empty",
-    "Empty",
-    "Enemy",
-    "Weapon",
-    "Potion"
-   };
-   
-  /**
-   * The last case of the board
-   */
-  private static int endBoard = Board.length - 1;
-
 
   /**
    * Constructor of the Game class
@@ -34,19 +22,32 @@ public class Game {
     this.player = null;
   }
 
-
+ Board board = new Board(player);
   /**
    * Method which run the game
    */
   public void run() throws OutOfBoardException {
 
+   
+
     boolean isEnd = false;
 
-    player.position = 1;
+    player.setPosition(1);
+    if (player instanceof Warrior){
+      player.setOffensive(new Sword(0));
+      player.setHealth(10);
+    }
+    else {
+      player.setOffensive(new Fireball(0));
+      player.setHealth(6);
+    }
 
+
+    board.generateBoard();
+    
     while (!isEnd) {
-      if (player.position > endBoard) {
-        throw new OutOfBoardException();
+      if (player.getPosition() > 63) {
+        throw new OutOfBoardException(player);
       }
       else {
         isEnd = round();
@@ -59,49 +60,21 @@ public class Game {
  * @return a boolean
  */
   public boolean round() {
-    if (player.position < endBoard){
-      System.out.println("case " + player.position + "/" + endBoard);
-      String currentCase = Board[player.position];
-      switch (currentCase) {
-        case "Empty":
-          new Case();
-          break;
-        case "Enemy":
-          new Case(new Enemy(10, 6));
-          break;
-        case "Weapon":
-          new Case(new Weapon(5));
-          break;
-        case "Spell":
-          new Case(new Spell(5));
-          break;
-        case "Potion":
-          new Case(new Potion());
-          break;
-      }
-      player.position += 1;//virtualDice();
+    if (player.getPosition() < 63 && player.getHealth() > 0){
+      Case currentCase = board.getBoard()[player.getPosition()];
+      currentCase.run(player);
+      board.getBoard()[player.getPosition()] = new EmptyCase(player);
+      int newPos = player.getPosition() + virtualDice();
+      player.setPosition(newPos);
       return false;
     }
     else {
-      System.out.println("case " + player.position + "/" + endBoard);
-      String currentCase = Board[player.position];
-      switch (currentCase) {
-        case "Empty":
-          new Case();
-          break;
-        case "Enemy":
-          new Case(new Enemy(10, 6));
-          break;
-        case "Weapon":
-          new Case(new Weapon(5));
-          break;
-        case "Spell":
-          new Case(new Spell(5));
-          break;
-        case "Potion":
-          new Case(new Potion());
-          break;
-    }
+      if (player.getHealth() <= 0) {
+        System.out.println("You lose the game");
+      }
+      else {
+        System.out.println("You win the game");
+      }
       System.out.println("THE END");
       return true;
     }

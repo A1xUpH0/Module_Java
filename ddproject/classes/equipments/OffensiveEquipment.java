@@ -5,7 +5,7 @@ public abstract class OffensiveEquipment {
   /**
    * The level of the equipment
    */
-  private int level;
+  public int level;
  
 
   /**

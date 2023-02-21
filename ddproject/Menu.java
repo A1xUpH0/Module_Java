@@ -4,8 +4,8 @@ import java.util.Scanner;
 import ddproject.classes.Player;
 import ddproject.classes.characters.Warrior;
 import ddproject.classes.characters.Wizard;
-import ddproject.classes.equipments.offensive.Spell;
-import ddproject.classes.equipments.offensive.Weapon;
+import ddproject.classes.equipments.offensive.spells.Fireball;
+import ddproject.classes.equipments.offensive.weapons.Sword;
 import ddproject.exceptions.OutOfBoardException;
 
 public class Menu {
@@ -77,13 +77,11 @@ public class Menu {
 
           case 3 : 
             // We check that there's already a player defined
-            // FIXME we should check if the game is ready to start (delegate that responsibility to the game object)
             if(this.game.hasPlayer()){
               // The we run the game
               try {
                 this.game.run();
               } catch (OutOfBoardException e) {
-                // TODO catch exception
               }
             }
             break;
@@ -120,12 +118,12 @@ public class Menu {
       switch (choice){
         case 1 : 
           correct = true;
-          player = new Warrior(name, new Weapon(5));
+          player = new Warrior(name, new Sword(0));
           break;
 
         case 2 :
           correct = true;
-          player = new Wizard(name, new Spell(5));
+          player = new Wizard(name, new Fireball(0));
           break;
           
         default : correct = false;

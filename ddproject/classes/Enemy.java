@@ -11,7 +11,8 @@ public class Enemy {
    * Constructor of the class enemy
    */
   public Enemy(int health, int strength){
-
+    this.health = health;
+    this.strength = strength;
   }
 
 
