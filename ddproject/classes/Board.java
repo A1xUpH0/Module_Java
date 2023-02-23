@@ -16,6 +16,7 @@ import ddproject.classes.cases.offensiveequipmentcases.weaponcases.MaceCase;
 import ddproject.classes.cases.offensiveequipmentcases.weaponcases.SwordCase;
 import ddproject.classes.cases.potioncases.BigPotionCase;
 import ddproject.classes.cases.potioncases.StandardPotionCase;
+import ddproject.classes.cases.potioncases.ThunderboltPotionCase;
 
 public class Board {
   
@@ -46,7 +47,8 @@ public class Board {
   };
   private Case[] potions = {
       new StandardPotionCase(player),
-      new BigPotionCase(player)
+      new BigPotionCase(player),
+      new ThunderboltPotionCase(player)
   };
 
 
@@ -61,7 +63,7 @@ public class Board {
         board[i] = enemies[virtualDice(4)];
       }
       else if (diceTypeCase <= 7) {
-        board[i] = potions[virtualDice(1)];
+        board[i] = potions[virtualDice(2)];
       }
       else{
         board[i] = new EmptyCase(player);

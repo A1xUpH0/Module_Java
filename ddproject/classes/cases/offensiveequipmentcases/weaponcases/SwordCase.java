@@ -1,10 +1,12 @@
 package ddproject.classes.cases.offensiveequipmentcases.weaponcases;
 
 import java.util.Random;
+import java.util.Scanner;
 
 import ddproject.classes.Player;
 import ddproject.classes.cases.offensiveequipmentcases.WeaponCase;
 import ddproject.classes.equipments.offensive.Weapon;
+import ddproject.classes.equipments.offensive.weapons.Sword;
 
 public class SwordCase extends WeaponCase {
 
@@ -12,13 +14,31 @@ public class SwordCase extends WeaponCase {
     super(player);
   }
   
+  Scanner sc = new Scanner(System.in);
+  private boolean correct = false;
 
   public void run(Player player){
     System.out.println("case " + player.getPosition() + "/" + 63 + " | You find a new sword");
-    Weapon newWeapon = new Weapon(virtualDice(5));
-    if (betterThanOlder(player.getOffensive().level, newWeapon.level) & allowToEquip(player)){
-      player.offensive = newWeapon;
-      System.out.println("Weapon changed");
+    Weapon newWeapon = new Sword(virtualDice(5));
+    if(allowToEquip(player)){
+      do{
+        System.out.println(" Would you replace  " + player.getInventory()[1].toString() + " by " + newWeapon.toString() + " ?");
+        System.out.println(" 0 - YES");
+        System.out.println(" 1 - NO");
+        int choice  = sc.nextInt();
+        sc.nextLine();
+        if (choice == 0){
+          player.inventory[1] = newWeapon;
+          System.out.println("Weapon changed");
+          correct = true;
+        }
+        else if(choice == 1){
+          correct = true;
+        }
+        else {
+          correct = false;
+        }
+      }while(!correct);
     }
   }
 

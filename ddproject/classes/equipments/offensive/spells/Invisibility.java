@@ -9,7 +9,13 @@ public class Invisibility extends Spell {
    * @param level
    */
   public Invisibility(int level) {
-    super(level);
+    super(5);
   }
   
+
+
+  @Override
+  public String toString(){
+    return "| Invisibility level : " + level + " |";
+  }
 }

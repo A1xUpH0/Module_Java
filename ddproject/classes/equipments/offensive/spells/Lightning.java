@@ -12,4 +12,9 @@ public class Lightning extends Spell {
     super(level);
   }
   
+
+  @Override
+  public String toString(){
+    return "| Lightning level : " + level + " |";
+  }
 }

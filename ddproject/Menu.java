@@ -1,11 +1,15 @@
 package ddproject;
 
+import java.util.Random;
 import java.util.Scanner;
 import ddproject.classes.Player;
 import ddproject.classes.characters.Warrior;
 import ddproject.classes.characters.Wizard;
+import ddproject.classes.equipments.offensive.Spell;
+import ddproject.classes.equipments.offensive.Weapon;
 import ddproject.classes.equipments.offensive.spells.Fireball;
 import ddproject.classes.equipments.offensive.weapons.Sword;
+import ddproject.exceptions.BeforeBoardException;
 import ddproject.exceptions.OutOfBoardException;
 
 public class Menu {
@@ -39,14 +43,15 @@ public class Menu {
   /**
    * Method which run the menu
    * @throws OutOfBoardException
+   * @throws BeforeBoardException
    */
-  public void run() throws OutOfBoardException{
+  public void run() throws OutOfBoardException, BeforeBoardException{
     System.out.println("\nBonjour !\n");
     while (!this.exit) {
         if(this.game.hasPlayer()){
           System.out.println("\nCHOOSE");
-          System.out.println(" 1 - Update player");
-          System.out.println(" 2 - Delete player");
+          System.out.println(" 1 - Update player & equipment");
+          System.out.println(" 2 - Delete player & equipment");
           System.out.println(" 3 - Run game");
         } else {
             System.out.println(" 1 - Create player");
@@ -81,7 +86,8 @@ public class Menu {
               // The we run the game
               try {
                 this.game.run();
-              } catch (OutOfBoardException e) {
+              }catch (OutOfBoardException e) {
+              }catch (BeforeBoardException e) {
               }
             }
             break;
@@ -110,25 +116,72 @@ public class Menu {
     boolean correct;
     Player player = null;
     do {
-      System.out.println("\nChoose class");
+      System.out.println("\nChoose your class");
       System.out.println(" 1 - Warrior");
       System.out.println(" 2 - Wizard");
       int choice  = scanner.nextInt();
       scanner.nextLine();
       switch (choice){
         case 1 : 
+          boolean weaponCorrect = false;
+          Weapon w1 = new Sword(virtualDice(2));
+          Weapon w2 = new Sword(virtualDice(2));
+          do{
+            System.out.println("\nChoose your weapon");
+            System.out.println(" 1 - " + w1.toString());
+            System.out.println(" 2 - " + w2.toString());
+            int weaponChoice  = scanner.nextInt();
+            scanner.nextLine();
+            player = new Warrior(name);
+            if (weaponChoice == 1){
+              player.inventory[0] = w1;
+              weaponCorrect = true;
+            } else if (weaponChoice == 2){
+              player.inventory[0] = w2;
+              weaponCorrect = true;
+            } else {
+              weaponCorrect = false;
+            }
+          }while(!weaponCorrect);
           correct = true;
-          player = new Warrior(name, new Sword(0));
           break;
 
         case 2 :
-          correct = true;
-          player = new Wizard(name, new Fireball(0));
-          break;
+        boolean spellCorrect = false;
+        Spell s1 = new Fireball(virtualDice(2));
+        Spell s2 = new Fireball(virtualDice(2));
+        do{
+          System.out.println("\nChoose your weapon");
+          System.out.println(" 1 - " + s1.toString());
+          System.out.println(" 2 - " + s2.toString());
+          int spellChoice  = scanner.nextInt();
+          scanner.nextLine();
+          player = new Wizard(name);
+          if (spellChoice == 1){
+            player.inventory[0] = s1;
+            weaponCorrect = true;
+          } else if (spellChoice == 2){
+            player.inventory[0] = s2;
+            spellCorrect = true;
+          } else {
+            spellCorrect = false;
+          }
+        }while(!spellCorrect);
+        correct = true;
+        break;
           
         default : correct = false;
       }
     } while (!correct);
     return player;
+  }
+
+
+  /**
+   * Method which return a random integer (1 - max)
+   * @return an integer
+   */
+  public int virtualDice(int max) {
+    return new Random().nextInt(max + 1);
   }
 }

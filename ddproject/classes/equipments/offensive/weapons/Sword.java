@@ -12,4 +12,9 @@ public class Sword extends Weapon{
     super(level);
   }
   
+
+  @Override
+  public String toString(){
+    return "| Sword level : " + level + " |";
+  }
 }

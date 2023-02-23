@@ -1,7 +1,6 @@
 package ddproject.classes.characters;
 
 import ddproject.classes.Player;
-import ddproject.classes.equipments.offensive.Weapon;
 
 public class Warrior extends Player {
 
@@ -11,7 +10,7 @@ public class Warrior extends Player {
    * @param health
    * @param strength
    */
-  public Warrior(String name, Weapon offensive) {
-    super(name, 10, 10, 0, offensive);
+  public Warrior(String name) {
+    super(name, 10, 10, 0);
   }
 }

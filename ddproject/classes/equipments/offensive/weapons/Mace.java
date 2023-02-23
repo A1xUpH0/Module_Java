@@ -12,4 +12,9 @@ public class Mace extends Weapon {
     super(level);
   }
   
+
+  @Override
+  public String toString(){
+    return "| Mace level : " + level + " |";
+  }
 }

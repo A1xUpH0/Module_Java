@@ -7,8 +7,7 @@ import ddproject.classes.Case;
 import ddproject.classes.Player;
 import ddproject.classes.cases.EmptyCase;
 import ddproject.classes.characters.Warrior;
-import ddproject.classes.equipments.offensive.spells.Fireball;
-import ddproject.classes.equipments.offensive.weapons.Sword;
+import ddproject.exceptions.BeforeBoardException;
 import ddproject.exceptions.OutOfBoardException;
 
 public class Game {
@@ -25,25 +24,29 @@ public class Game {
  Board board = new Board(player);
   /**
    * Method which run the game
+   * @throws BeforeBoardException
    */
-  public void run() throws OutOfBoardException {
+  public void run() throws OutOfBoardException, BeforeBoardException {
 
    
 
     boolean isEnd = false;
 
     player.setPosition(1);
+    
     if (player instanceof Warrior){
-      player.setOffensive(new Sword(0));
       player.setHealth(10);
     }
     else {
-      player.setOffensive(new Fireball(0));
       player.setHealth(6);
     }
+    player.setThunderbolt(false);
 
 
     board.generateBoard();
+
+
+    
     
     while (!isEnd) {
       if (player.getPosition() > 63) {
@@ -51,6 +54,10 @@ public class Game {
       }
       else {
         isEnd = round();
+      }
+
+      if (player.getPosition() < 0) {
+        throw new BeforeBoardException(player);
       }
     }
   }

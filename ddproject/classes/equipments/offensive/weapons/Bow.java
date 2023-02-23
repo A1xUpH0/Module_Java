@@ -9,7 +9,12 @@ public class Bow extends Weapon{
    * @param level
    */
   public Bow(int level) {
-    super(level);
+    super(4);
   }
 
+
+  @Override
+  public String toString(){
+    return "| Bow level : " + level + " |";
+  }
 }

@@ -48,5 +48,4 @@ public class Enemy {
   public void setStrength(int strength) {
     this.strength = strength;
   }
-
 }
