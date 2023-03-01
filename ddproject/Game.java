@@ -21,38 +21,35 @@ public class Game {
     this.player = null;
   }
 
- Board board = new Board(player);
+  private Board board;
+
   /**
    * Method which run the game
+   * 
    * @throws BeforeBoardException
    */
-  public void run() throws OutOfBoardException, BeforeBoardException {
+  public void run(Player player) throws OutOfBoardException, BeforeBoardException {
 
-   
+    this.player = player;
 
+    this.board = new Board(player);
     boolean isEnd = false;
 
     player.setPosition(1);
-    
-    if (player instanceof Warrior){
+
+    if (player instanceof Warrior) {
       player.setHealth(10);
-    }
-    else {
+    } else {
       player.setHealth(6);
     }
     player.setThunderbolt(false);
 
-
     board.generateBoard();
 
-
-    
-    
     while (!isEnd) {
       if (player.getPosition() > 63) {
         throw new OutOfBoardException(player);
-      }
-      else {
+      } else {
         isEnd = round();
       }
 
@@ -62,24 +59,22 @@ public class Game {
     }
   }
 
-/**
- * Method which simulate one round of the game
- * @return a boolean
- */
+  /**
+   * Method which simulate one round of the game
+   * 
+   * @return a boolean
+   */
   public boolean round() {
-    if (player.getPosition() < 63 && player.getHealth() > 0){
+    if (player.getPosition() < 63 && player.getHealth() > 0) {
       Case currentCase = board.getBoard()[player.getPosition()];
       currentCase.run(player);
       board.getBoard()[player.getPosition()] = new EmptyCase(player);
-      int newPos = player.getPosition() + virtualDice();
-      player.setPosition(newPos);
+      player.setPosition(player.getPosition() + virtualDice());
       return false;
-    }
-    else {
+    } else {
       if (player.getHealth() <= 0) {
         System.out.println("You lose the game");
-      }
-      else {
+      } else {
         System.out.println("You win the game");
       }
       System.out.println("THE END");
@@ -87,46 +82,47 @@ public class Game {
     }
   }
 
-
   /**
    * Method which retur a random integer (1 - 6)
+   * 
    * @return an integer
    */
   public int virtualDice() {
-    return new Random().nextInt(5 + 1)  + 1;
+    return new Random().nextInt(5 + 1) + 1;
   }
-
 
   /**
    * Method which verify if the game has a player
+   * 
    * @return a boolean
    */
   public boolean hasPlayer() {
-      return this.player != null;
+    return this.player != null;
   }
-
 
   /**
    * Method which delete the current player
    */
   public void unsetPlayer() {
-      this.player = null;
+    this.player = null;
   }
-
 
   // Getters et Setters
 
-   /**
+  /**
    * Getter of "player" variable
+   * 
    * @return player : The player of the character
    */
   public Player getPlayer() {
     return player;
   }
+
   /**
-  * Setter of "player" variable
-  * @param player : The player of the character
-  */
+   * Setter of "player" variable
+   * 
+   * @param player : The player of the character
+   */
   public void setPlayer(Player player) {
     this.player = player;
   }

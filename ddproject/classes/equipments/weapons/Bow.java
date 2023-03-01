@@ -1,20 +1,20 @@
-package ddproject.classes.equipments.offensive.weapons;
+package ddproject.classes.equipments.weapons;
 
-import ddproject.classes.equipments.offensive.Weapon;
+import ddproject.classes.equipments.Weapon;
 
-public class Bow extends Weapon{
+public class Bow extends Weapon {
 
   /**
    * The constructor of the Bow class
+   * 
    * @param level
    */
   public Bow(int level) {
     super(4);
   }
 
-
   @Override
-  public String toString(){
+  public String toString() {
     return "| Bow level : " + level + " |";
   }
 }

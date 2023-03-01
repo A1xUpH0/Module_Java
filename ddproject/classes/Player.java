@@ -1,8 +1,8 @@
 package ddproject.classes;
 
-import ddproject.classes.equipments.OffensiveEquipment;
-import ddproject.classes.equipments.offensive.Weapon;
-import ddproject.classes.equipments.offensive.weapons.Sword;
+import ddproject.classes.equipments.Equipment;
+import ddproject.classes.equipments.Weapon;
+import ddproject.classes.equipments.weapons.Sword;
 
 public abstract class Player {
 
@@ -25,10 +25,9 @@ public abstract class Player {
   /**
    * The offensive equipment of the Character (Weapon or Spell)
    */
-  public OffensiveEquipment[] inventory = new OffensiveEquipment[2];
+  public Equipment[] inventory = new Equipment[2];
 
   private boolean thunderbolt = false;
-
 
   /**
    * Constructor of the Character class (default value)
@@ -40,11 +39,13 @@ public abstract class Player {
     this.position = 0;
     this.inventory[0] = new Weapon(5);
   }
+
   /**
    * Constructor of the Character class
-   * @param name : The name of the character
-   * @param type : The type of the character
-   * @param health : The health of the character
+   * 
+   * @param name     : The name of the character
+   * @param type     : The type of the character
+   * @param health   : The health of the character
    * @param strength : The strength of the character
    */
   public Player(String name, int health, int strength, int position) {
@@ -56,101 +57,110 @@ public abstract class Player {
     this.inventory[1] = new Sword(0);
   }
 
-
   /**
    * override of the method toString
    */
   @Override
-  public String toString(){
+  public String toString() {
     return "| Player : " + name + ", Health : " + health + ", Strenght : " + strength + " |";
   }
-  
 
   // Getters et Setters
 
-   /**
+  /**
    * Getter of "name" variable
+   * 
    * @return name : The name of the character
    */
   public String getName() {
-       return name;
+    return name;
   }
+
   /**
    * Setter of "name" variable
+   * 
    * @param name : The name of the character
    */
   public void setName(String name) {
-      this.name = name;
+    this.name = name;
   }
-
 
   /**
    * Getter of "health" variable
+   * 
    * @return"health : The health of the character
    */
   public int getHealth() {
     return health;
   }
+
   /**
    * Setter of "health" variable
+   * 
    * @param health : The health of the character
    */
   public void setHealth(int health) {
-      this.health = health;
+    this.health = health;
   }
-
 
   /**
    * Getter of "strength" variable
+   * 
    * @return"strength : The strength of the character
    */
   public int getStrength() {
     return strength;
   }
+
   /**
    * Setter of "strength" variable
+   * 
    * @param strength : The strength of the character
    */
   public void setStrength(int strength) {
-      this.strength = strength;
+    this.strength = strength;
   }
-
 
   /**
    * Getter of "inventory" variable
+   * 
    * @return"inventory : The inventory of the character
    */
-  public OffensiveEquipment[] getInventory() {
+  public Equipment[] getInventory() {
     return inventory;
   }
+
   /**
    * Setter of "inventory" variable
+   * 
    * @param offensive : The offensive of the character
    */
-  public void setInventory(OffensiveEquipment offensive) {
-      this.inventory[0] = offensive;
+  public void setInventory(Equipment offensive) {
+    this.inventory[0] = offensive;
   }
 
-
-    /**
+  /**
    * Getter of "position" variable
+   * 
    * @return"position : The position of the character
    */
   public int getPosition() {
     return position;
   }
+
   /**
    * Setter of "position" variable
+   * 
    * @param position : The position of the character
    */
   public void setPosition(int position) {
-      this.position = position;
+    this.position = position;
   }
-
 
   public boolean getThunderbolt() {
     return thunderbolt;
   }
+
   public void setThunderbolt(boolean thunderbolt) {
     this.thunderbolt = thunderbolt;
   }
